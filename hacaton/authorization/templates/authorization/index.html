@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V3</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="{% static 'authorization/images/icons/favicon.ico' %}"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/vendor/bootstrap/css/bootstrap.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/fonts/font-awesome-4.7.0/css/font-awesome.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/fonts/iconic/css/material-design-iconic-font.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/vendor/animate/animate.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/vendor/css-hamburgers/hamburgers.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/vendor/animsition/css/animsition.min.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/vendor/select2/select2.min.css' %}">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/vendor/daterangepicker/daterangepicker.css' %}">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/css/util.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'authorization/css/main.css' %}">
+<!--===============================================================================================-->
+</head>
+<body>
+<script src="{% static 'authorization/js/anim.js' %}"></script>
+<script src="{% static 'global/js/vue.js' %}"></script>
+<script src="{% static 'global/js/axios.js' %}"></script>
+	
+	
+<script>
+//axios.defaults.withCredentials = true;
+
+//alert(r);
+
+//if (r == 1) {
+//alert('HUI');
+//	GetAppPage();
+//};
+
+</script>
+
+	<div class="limiter">
+		<div class="container-login100" style="background-image: url({% static 'authorization/images/bg-01.jpg' %});">
+			{% verbatim %}
+			<div class="wrap-login100">
+			
+			<!-- ----------- Register form -->
+			<form class="login100-form validate-form" v-if="is_new" v-on:submit.prevent="SignUp">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Sign up
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username" v-model="log">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password" v-model="pas">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn" type="submit">
+							Let`s go!
+						</button>
+					</div>
+
+					<div class="text-center p-t-20" style="color: #C9F600">
+							{{info}}
+					</div>
+
+					<div class="text-center p-t-50">
+						<a class="txt1" @click = "ChangeWindow" href="#">
+							Already have an account? Click here to <u><b>log in</b></u>!
+						</a>
+					</div>
+				</form>
+
+			
+			
+			
+			
+			<!-- ----------- Login form -->
+				<form class="login100-form validate-form" v-else v-on:submit.prevent="LogIn">
+					<span class="login100-form-logo">
+						<i class="zmdi zmdi-landscape"></i>
+					</span>
+
+					<span class="login100-form-title p-b-34 p-t-27">
+						Log in
+					</span>
+
+					<div class="wrap-input100 validate-input" data-validate = "Enter username">
+						<input class="input100" type="text" name="username" placeholder="Username"  v-model="log">
+						<span class="focus-input100" data-placeholder="&#xf207;"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input" data-validate="Enter password">
+						<input class="input100" type="password" name="pass" placeholder="Password"  v-model="pas">
+						<span class="focus-input100" data-placeholder="&#xf191;"></span>
+					</div>
+
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Let`s go!
+						</button>
+					</div>
+
+					<div class="text-center p-t-20" style="color: #C9F600">
+						{{info}}
+					</div>
+
+					<div class="text-center p-t-50">
+						<a class="txt1" @click="ChangeWindow" href="#">
+							Hey, are you here for the first time? Click here to <u><b>sign up</b></u>!
+						</a>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	</div>
+	{% endverbatim %}
+
+	<div id="dropDownSelect1"></div>
+	
+	
+<!--===============================================================================================-->
+	<script src="{% static 'authorization/vendor/jquery/jquery-3.2.1.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'authorization/vendor/animsition/js/animsition.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'authorization/vendor/bootstrap/js/popper.js' %}"></script>
+	<script src="{% static 'authorization/vendor/bootstrap/js/bootstrap.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'authorization/vendor/select2/select2.min.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'authorization/vendor/daterangepicker/moment.min.js' %}"></script>
+	<script src="{% static 'authorization/vendor/daterangepicker/daterangepicker.js' %}"></script>
+<!--===============================================================================================-->
+	<script src="{% static 'authorization/vendor/countdowntime/countdowntime.js' %}"></script>
+<!--===============================================================================================-->
+	
+	<script src="{% static 'authorization/js/vue_requests.js' %}"></script>
+
+</body>
+</html>
